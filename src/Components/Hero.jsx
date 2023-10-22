@@ -52,7 +52,7 @@ function Hero() {
         position={"absolute"}
         bottom={"-70px"}
         zIndex={"-1"}
-        sx={{opacity:{xs: "0.0", md:"0.2"}}}
+        sx={{opacity:{md:"0.2"}, display:{xs:"none", md:"block"}}}
       >
         Exercises
       </Typography>
