@@ -8,7 +8,7 @@ import { Stack, Typography, useTheme } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { search } from "../redux/dataSlice";
 
-function Category() {
+function Category(props) {
   const dispatch = useDispatch()
   const themee = useTheme();
   const categories = [
@@ -31,6 +31,7 @@ function Category() {
       left: 0,
       behavior: "smooth",
     });
+    props.setResetPage(true)
   };
 
 

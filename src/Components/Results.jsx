@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../redux/dataSlice";
 import ExerciseCard from "./ExerciseCard";
 
-function Results() {
+function Results(props) {
   const data = useSelector((state) => state.data.data);
   const searched = useSelector((state) => state.data.searched);
   const resultsPosition = useRef();
@@ -19,11 +19,15 @@ function Results() {
   useEffect(() => {
     setResult(searched);
   }, [searched]);
-
+  
   const itemsPerPage = 6;
   const pageCount = Math.ceil(results.length / itemsPerPage);
-
+  
   const [page, setPage] = React.useState(1);
+  useEffect(() => {
+    setPage(1);
+    props.setResetPage(false)
+  }, [props.resetPage]);
   const endOffset = page * itemsPerPage;
   const itemOffset = endOffset - itemsPerPage;
   const currentResults = results.slice(itemOffset, endOffset);
