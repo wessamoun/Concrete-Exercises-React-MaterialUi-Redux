@@ -1,4 +1,4 @@
-import { Grid, Pagination, Skeleton, Typography } from "@mui/material";
+import { Grid,  Pagination,  Skeleton, Typography } from "@mui/material";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchData } from "../redux/dataSlice";
@@ -12,9 +12,11 @@ function Results(props) {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchData('https://exercisedb.p.rapidapi.com/exercises'));
+    
   }, []);
   useEffect(() => {
     setResult(data);
+    console.log(results);
   }, [data]);
   useEffect(() => {
     setResult(searched);
